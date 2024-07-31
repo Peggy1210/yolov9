@@ -99,6 +99,7 @@ def run(
         with dt[1]:
             visualize = increment_path(save_dir / Path(path).stem, mkdir=True) if visualize else False
             pred, proto = model(im, augment=augment, visualize=visualize)[:2]
+            # Issues on https://github.com/WongKinYiu/yolov9/issues/233
             proto = proto[2]
 
         # NMS
